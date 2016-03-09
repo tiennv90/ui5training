@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Mangled date examples</title>
+    <script src="/unittestintro/prettydate.js"></script>    
+    <script type="text/javascript">   
+        (function(){
+            prettyDate.update("2016-03-06T20:24:17Z");
+            console.log("Executed !");
+        })();
+    </script>
+</head>
+<body>
+ 
+<ul>
+  <li class="entry">
+    <p>blah blah blah...</p>
+    <small class="extra">
+      Posted <span class="time">
+        <a href="#2016/03/blah/57/" title="2016-03-06T20:24:17Z">
+          <span>March 06th, 2016</span>
+        </a>
+      </span>
+      by <span class="author"><a href="#john/">John Resig</a></span>
+    </small>
+  </li>
+  <!-- more list items -->
+</ul>
+ 
+</body>
+</html>
