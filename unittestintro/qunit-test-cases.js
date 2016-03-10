@@ -74,9 +74,9 @@ QUnit.test("myfunction.addANewProductAfter5seconds", function(assert){
 	var now = new Date().getTime() / 1000;
 	myfunction.addANewProductAfter5seconds(function(){
 		console.log(now);
-		var expected = (new Date().getTime() / 1000) - now;
+		var expected = ((new Date().getTime() / 1000) - now).toFixed(0);
 		assert.equal(myfunction.cart.length, 1);
 		assert.equal(expected, 5);
 	});	
-	assert.ok( true, "test resumed from async operation 2" );
+	assert.ok( true, "test resumed from async operation" );
 });
