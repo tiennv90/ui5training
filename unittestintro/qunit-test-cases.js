@@ -15,6 +15,7 @@ QUnit.test("myfunction.addNewProduct", function(assert){
 	assert.equal(myfunction.cart[0].name, "Product Name 1");
 }); 
 
+//==========================
 QUnit.module("Test other cart functions", {
   beforeEach: function() {
 	  var product1 = {
@@ -58,4 +59,24 @@ QUnit.test("myfunction.findProductInCart no result", function(assert){
 	};
 	var result = myfunction.findProductInCart(product);  
 	assert.equal(result, null);
-});   
+});
+
+//==========================
+QUnit.module("Test async functions", {
+  beforeEach: function() {
+	  myfunction.cart = []; 
+  },
+  afterEach: function()	{
+	 myfunction.cart = []; 
+  }
+});
+QUnit.test("myfunction.addANewProductAfter5seconds", function(assert){ 
+	var now = new Date().getTime() / 1000;
+	myfunction.addANewProductAfter5seconds(function(){
+		console.log(now);
+		var expected = (new Date().getTime() / 1000) - now;
+		assert.equal(myfunction.cart.length, 1);
+		assert.equal(expected, 5);
+	});	
+	assert.ok( true, "test resumed from async operation 2" );
+});

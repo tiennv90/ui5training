@@ -26,6 +26,21 @@ var myfunction = {
 			}
 		}
 		return null;
-	}    
+	},
+	
+	addANewProductAfter5seconds: function(callback) {
+		var that = this;
+		console.log("please wait for 5 seconds");
+		setTimeout(function() {
+			var newProduct = {
+				name: "New Product"
+			}
+			that.addNewProduct.call(that, newProduct);
+			console.log("a product has been added successfully!");
+			if (callback) {
+				callback();
+			}
+		}, 5000);
+	}
 }
 
