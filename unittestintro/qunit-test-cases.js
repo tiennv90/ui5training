@@ -79,6 +79,5 @@ QUnit.test("myfunction.addANewProductAfter5seconds", function(assert){
 		assert.equal(myfunction.cart.length, 1);
 		assert.equal(expected, 5);
 		done();
-	});	
-	assert.ok( true, "test resumed from async operation" );
+	});
 });

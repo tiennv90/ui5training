@@ -6,10 +6,38 @@
   <link rel="stylesheet" href="/qunit-1.22.0.css">
   <script src="/qunit-1.22.0.js"></script>
   <script src="/blanket.js"></script>
+  <script src="/qunit-reporter-junit.js"></script>
   <script src="/unittestintro/function.js" data-cover></script>
   <script src="/unittestintro/qunit-test-cases.js"> </script>
+  <script>
+	QUnit.testStart(function(details) {
+		console.log("Now running: ", details.module, details.name);
+	});
+	QUnit.testDone(function(details) {
+		console.log("Finished running: ", details.module, details.name, "Failed/total/duration: ", details.failed,
+			details.total, details.duration);
+	});
+	QUnit.done(function(details) {
+		console.log("Total: ", details.total, " Failed: ", details.failed, " Passed: ", details.passed, " Runtime: ",
+			details.runtime);
+	});
+	QUnit.log(function(details) {
+		if (details.result) {
+			return;
+		}
+		var loc = details.module + ": " + details.name + ": ", output = "FAILED: " + loc +
+			(details.message ? details.message + ", " : "");
+		if (details.actual) {
+			output += "expected: " + details.expected + ", actual: " + details.actual;
+		}
+		if (details.source) {
+			output += ", " + details.source;
+		}
+		console.log(output);
+	});
+  </script>
 </head>
 <body>
-<div id="qunit"></div>
+	<div id="qunit"></div>
 </body>
 </html>
