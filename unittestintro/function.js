@@ -1,8 +1,5 @@
 var myfunction = {
-    cart: [],    
-    sum: function(a, b) {
-        return a + b;
-    },
+    cart: [],
     
     addNewProduct: function(product) {
 		this.cart.push(product);	        
